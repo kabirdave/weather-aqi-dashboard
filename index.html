@@ -1,0 +1,79 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Weather & AQI Dashboard</title>
+  <link href="style.css" rel="stylesheet" />
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700&display=swap" rel="stylesheet">
+</head>
+<body>
+  <div class="container">
+    <header>
+      <h1>Weather & AQI Dashboard</h1>
+      <p class="sub">Search any city — shows current weather + Air Quality Index</p>
+    </header>
+
+    <section class="search-area">
+      <input id="cityInput" placeholder="Enter city name (e.g., Auckland)" />
+      <button id="searchBtn">Search</button>
+    </section>
+
+    <section class="content">
+      <div class="left">
+        <div id="weatherCard" class="card hidden">
+          <div class="weather-top">
+            <div>
+              <h2 id="cityName">City</h2>
+              <p id="dateText"></p>
+            </div>
+            <img id="weatherIcon" alt="weather icon" />
+          </div>
+
+          <div class="weather-main">
+            <div class="temp">
+              <span id="temp">--°C</span>
+              <span id="desc" class="muted">--</span>
+            </div>
+            <div class="stats">
+              <div>Humidity: <span id="humidity">--%</span></div>
+              <div>Wind: <span id="wind">-- m/s</span></div>
+            </div>
+          </div>
+        </div>
+
+        <div id="aqiCard" class="card hidden">
+          <h3>Air Quality Index (AQI)</h3>
+          <div class="aqi-row">
+            <div class="aqi-value" id="aqiValue">--</div>
+            <div class="aqi-desc" id="aqiDesc">--</div>
+          </div>
+          <p class="muted small" id="aqiDetail">--</p>
+        </div>
+      </div>
+
+      <aside class="right">
+        <div class="card">
+          <h3>Recent Searches</h3>
+          <ul id="historyList" class="history"></ul>
+        </div>
+
+        <div class="card">
+          <h3>Quick Tips</h3>
+          <ul>
+            <li>Type city names precisely (e.g., "Wellington, NZ").</li>
+            <li>If AQI missing: city coordinate not found or API limit reached.</li>
+          </ul>
+        </div>
+      </aside>
+    </section>
+
+    <footer>
+      <small>Built with OpenWeather API • LocalStorage saves recent searches</small>
+    </footer>
+  </div>
+
+  <script src="script.js"></script>
+</body>
+</html>
